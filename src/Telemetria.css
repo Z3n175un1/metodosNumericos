@@ -1,0 +1,795 @@
+.telemetria {
+  background: linear-gradient(180deg, #06060c 0%, #0a0a18 50%, #06060c 100%);
+  min-height: 100svh;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.tel-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tel-back {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.tel-back:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.tel-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  color: #f3f4f6;
+}
+
+.tel-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: rgba(192, 132, 252, 0.7);
+}
+
+.tel-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 32px 0;
+  text-align: center;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tel-intro strong {
+  color: #f3f4f6;
+}
+
+.tel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 28px 32px 40px;
+  flex-wrap: wrap;
+}
+
+.tel-btn {
+  padding: 12px 28px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tel-btn:hover {
+  transform: translateY(-2px);
+}
+
+.tel-btn--primary {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+}
+
+.tel-btn--primary:hover {
+  box-shadow: 0 6px 28px rgba(124, 58, 237, 0.45);
+}
+
+.tel-btn--secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tel-btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tel-error {
+  width: 100%;
+  text-align: center;
+  color: #f87171;
+  font-size: 0.85rem;
+}
+
+.tel-data {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 40px;
+}
+
+.tel-split {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.tel-split-table {
+  flex: 0 0 340px;
+  min-width: 0;
+}
+
+.tel-split-table h2,
+.tel-split-chart h2 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 12px;
+}
+
+.tel-split-chart {
+  flex: 1;
+  min-width: 0;
+}
+
+.tel-table-wrap {
+  max-height: 360px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.tel-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.tel-table th {
+  position: sticky;
+  top: 0;
+  background: rgba(20, 20, 40, 0.95);
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tel-table th:last-child {
+  width: 36px;
+  text-align: center;
+}
+
+.tel-table td {
+  padding: 4px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  font-variant-numeric: tabular-nums;
+  vertical-align: middle;
+}
+
+.tel-table tbody tr:hover {
+  background: rgba(124, 58, 237, 0.06);
+}
+
+.tel-table tbody tr.tel-row-editing {
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.tel-cell {
+  cursor: pointer;
+  display: block;
+  padding: 4px 0;
+  border-radius: 4px;
+  transition: background 0.15s;
+  min-height: 22px;
+}
+
+.tel-cell:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tel-input {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  border-radius: 6px;
+  color: #f3f4f6;
+  font-size: 13px;
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  padding: 5px 8px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.tel-input:focus {
+  border-color: #c084fc;
+  box-shadow: 0 0 0 2px rgba(192, 132, 252, 0.15);
+}
+
+.tel-btn-del {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.tel-btn-del:hover {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.tel-edit-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.tel-btn-sm {
+  flex: 1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: rgba(124, 58, 237, 0.2);
+  color: #c084fc;
+  transition: background 0.2s;
+}
+
+.tel-btn-sm:hover {
+  background: rgba(124, 58, 237, 0.35);
+}
+
+.tel-btn-sm--sec {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tel-btn-sm--sec:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tel-btn-add {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.tel-btn-add:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.tel-eq-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.tel-eq-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
+.tel-eq-card h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  margin: 0 0 8px;
+}
+
+.tel-eq-hint {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.tel-eq-hint code {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: rgba(192, 132, 252, 0.7);
+}
+
+.tel-eq-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tel-eq-preset {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.tel-eq-preset:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tel-eq-preset.active {
+  background: rgba(124, 58, 237, 0.15);
+  border-color: rgba(124, 58, 237, 0.3);
+  color: #c084fc;
+}
+
+.tel-integral-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tel-integral-symbol {
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: rgba(192, 132, 252, 0.7);
+  line-height: 1;
+  font-family: serif;
+}
+
+.tel-integral-limits {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  margin-right: 4px;
+}
+
+.tel-integral-sup {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 2px;
+}
+
+.tel-integral-sub {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tel-integrand {
+  flex: 1;
+  min-width: 0;
+}
+
+.tel-integral-dx {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: 4px;
+}
+
+.tel-eq-input--inline {
+  font-size: 1rem;
+  padding: 6px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tel-eq-input {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #f3f4f6;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.tel-eq-input:focus {
+  border-color: rgba(192, 132, 252, 0.4);
+  box-shadow: 0 0 0 2px rgba(192, 132, 252, 0.1);
+}
+
+.tel-param-dx {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tel-param-readonly {
+  display: inline-block;
+  min-width: 50px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tel-eq-params {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.tel-eq-params label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tel-eq-params input {
+  width: 72px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: #f3f4f6;
+  font-family: inherit;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.tel-eq-params input:focus {
+  border-color: rgba(192, 132, 252, 0.3);
+}
+
+.tel-eq-generate {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tel-eq-generate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(14, 165, 233, 0.35);
+}
+
+.tel-eq-or {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+}
+
+.tel-eq-or::before,
+.tel-eq-or::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tel-eq-extra-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tel-ledge--theor {
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  background: transparent;
+  height: 0;
+}
+
+.tel-chart-wrap {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.tel-chart {
+  width: 100%;
+  height: 300px;
+  display: block;
+  border-radius: 8px;
+}
+
+.tel-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  flex-wrap: wrap;
+}
+
+.tel-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tel-ledge {
+  display: inline-block;
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.tel-ledge--line {
+  background: #c084fc;
+  height: 3px;
+}
+
+.tel-ledge--rect {
+  background: rgba(192, 132, 252, 0.3);
+  height: 10px;
+  border-radius: 2px;
+}
+
+.tel-ledge--trap {
+  border: 1.5px dashed rgba(0, 200, 255, 0.4);
+  background: transparent;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.tel-results {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px 40px;
+}
+
+.tel-results h2 {
+  font-size: 1.2rem;
+  color: #f3f4f6;
+  margin: 0 0 20px;
+}
+
+.tel-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.tel-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.tel-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  margin: 0 0 12px;
+}
+
+.tel-formula {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 1.15rem;
+  color: rgba(192, 132, 252, 0.8);
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.tel-val {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #f3f4f6;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.tel-val small {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.tel-card p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tel-card--rect .tel-formula {
+  color: rgba(192, 132, 252, 0.8);
+}
+
+.tel-card--trap .tel-formula {
+  color: rgba(0, 200, 255, 0.8);
+}
+
+.tel-diff {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: rgba(0, 200, 255, 0.05);
+  border: 1px solid rgba(0, 200, 255, 0.12);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.tel-diff strong {
+  color: rgba(0, 200, 255, 0.9);
+}
+
+.tel-steps {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px 60px;
+}
+
+.tel-steps h2 {
+  font-size: 1.2rem;
+  color: #f3f4f6;
+  margin: 0 0 20px;
+}
+
+.tel-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.tel-step {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.tel-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.2);
+  color: #c084fc;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.tel-step h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  margin: 0 0 8px;
+}
+
+.tel-step p {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.tel-step-mono {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.75rem !important;
+  word-break: break-all;
+}
+
+@media (max-width: 900px) {
+  .tel-split {
+    flex-direction: column;
+  }
+
+  .tel-split-table {
+    flex: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .tel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .tel-title {
+    font-size: 1.15rem;
+  }
+
+  .tel-intro {
+    padding: 24px 16px 0;
+    font-size: 0.95rem;
+  }
+
+  .tel-controls {
+    padding: 20px 16px 28px;
+  }
+
+  .tel-data {
+    padding: 0 16px 28px;
+  }
+
+  .tel-chart {
+    height: 220px;
+  }
+
+  .tel-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .tel-steps-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tel-results,
+  .tel-steps {
+    padding: 0 16px 32px;
+  }
+}
